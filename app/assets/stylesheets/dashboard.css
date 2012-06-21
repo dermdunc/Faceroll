@@ -1,0 +1,12 @@
+body {
+  background: #cff;
+}
+
+header {
+  padding-top: 20px;
+}
+
+.field_with_errors label {
+  color: #fff;
+}
+

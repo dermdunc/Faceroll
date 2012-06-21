@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FaceRoll</title>
+
+  </head>
+  <body>
+	<h3>Submit post</h3>
+	<%= form_for(@post) do |form| %>
+		<% if @post.errors.present? %>
+			<%= @post.errors.full_messages.join(", ") %>
+		<% end %>
+		<%= form.text_field :body %>
+		<%= form.submit "Roll" %>
+	<% end %>
+
+	<h3>Submit Photo</h3>
+	<%= form_for(@photo) do |form| %>
+		<% if @photo.errors.present? %>
+			<%= @photo.errors.full_messages.join(", ") %>
+		<% end %>
+		<%= form.file_field :upload %>
+		<%= form.submit "Roll" %>
+	<% end %>
+	
+	<section>
+		<h3>Followers</h3>
+		<% @followers.each do |follower| %>
+			<%= link_to follower.email, follower %>
+		<% end %>
+	</section>
+	
+	<section>
+		<h3>Following</h3>
+		<% @friends.each do |friend| %>
+			<%= link_to friend.email, friend %>
+		<% end %>
+	</section>
+	
+	<ol>
+		<%= render @updates %>
+	</ol>
+
+   </body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FaceRoll</title>
+    <% stylesheet_link_tag 'dashboard' %>
+  </head>
+  <body>
+	<% if can_follow?(@user) %>
+		<%= link_to "Follow", user_friendships_path(@user), method: :post %>
+	<% end %>
+	<section>
+		<h3><%= @user.email %></h3>
+		<ol>
+			<%= render @updates %>
+		</ol>
+	<section>
+   </body>
+</html>

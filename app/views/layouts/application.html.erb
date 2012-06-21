@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Faceroll</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<% flash.each do |key, value| -%>
+      <div class="flash <%= key %>"><%= value %></div>
+    <% end -%>
+
+<section>
+<%= form_tag(search_path, method: :get) do |form| %>
+	<%= text_field_tag :q %>
+	<%= submit_tag "Search" %>
+<% end %>
+<section>
+
+<%= render "user_bar" %>
+
+<%= yield %>
+</body>
+</html>
